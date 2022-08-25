@@ -2,9 +2,7 @@
 import java.util.Scanner;
 public class mars {
 
-    public static void main(String[] args){
-
-
+    public static void main(String[] args) throws InterruptedException {
 
         //Create a string variable named ColonyName, and set it equal to your desired name
         String ColonyName = "Home Goods ";
@@ -21,21 +19,21 @@ public class mars {
         //The landing process takes 2 days, calculate how much food is left after landing
         //Equation: Food = Food - (Pop * 0.75);
         //Use the equation twice
-       ShipFood -= (ShipPopulation*0.75);
-       ShipFood -= (ShipPopulation*0.75);
+        ShipFood -= (ShipPopulation * 0.75);
+        ShipFood -= (ShipPopulation * 0.75);
 
         //Print the amount of food that is left
         System.out.println(ShipFood);
 
         //An extra crate of food is found increasing ShipFood by 50%
-       ShipFood += (ShipFood*.5);
+        ShipFood += (ShipFood * .5);
 
         //The births very timed perfectly and 5 more babies join the ShipPopulation
-       ShipPopulation += 5;
+        ShipPopulation += 5;
 
-       //Conditionals
+        //Conditionals
 
-       //Choose where you want the ship to land. The Hill, The Plain, or
+        //Choose where you want the ship to land. The Hill, The Plain, or
         // The Ocean. Create a String value called LandingLocation and set it
         // equal to “The Hill” or “The Plain” or “The Ocean”
         String LandingLocation = "The Hill";
@@ -44,16 +42,75 @@ public class mars {
         if (LandingLocation.equals("The Plain")) {
             //If it does print “Bbzzz Landing on the Plain”
             System.out.println("Bbzzz Landing on the Plain");
+        } else {
+            System.out.println("ERROR!!! Flight plan already set. Landing on the Plain");
+
         }
-            else {
-                System.out.println("ERROR!!! Flight plan already set. Landing on the Plain");
+        Landing = LandingCheck(10);
 
-            }
+        //Return to the Mars file and underneath Landing equals LandingCheck
+        //Run the GuessingGame by calling a new GuessingGame constructor
+        new GuessingGame();
 
-        };
+        new MarsExpedition();
+
+        new FindingsLists();
 
 
     }
+
+    //Call a function called LandingCheck()
+    // that has a parameter of 100, returns boolean,
+    // and set it equal to Landing
+
+
+
+    //Create a public static void function called
+// LandingCheck with an int parameter called Loops
+    private static boolean LandingCheck(int Loops) throws InterruptedException {
+        //Create a for loop that starts at i = 0, loops
+        // until i is equal to Loops, and i increments by 1 each loop
+
+        for (int i = 0; i <= Loops; i++) {
+
+            //Create an if statement with 1 if, 2 else ifs, and 1 else
+            //
+            //The if statement should check to see if i divisible
+            // by 3 equals 0, and that i divisible by 5 equals 0
+            // Then print “Keep Center
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("Keep Center");
+            }
+            //The first else if statement should check if i divisible
+            // by 5 equals 0 Then print “Right”
+            else if (i % 5 == 0) {
+                System.out.println("Keep right");
+            }
+            //else if statement should check if i divisible by 3 equals 0
+            else if (i % 3 == 0) {
+                //Print "Left"
+                System.out.println("Keep left");
+            }
+            //Like always else statements do not have a condition
+            else
+            {
+                //Print "Calculating"
+                System.out.println("Calculating");
+            }
+
+            //Thread.sleep(250) slows the console down by 250 milliseconds
+            Thread.sleep(250);
+        }
+
+        //Print "Landed"
+        System.out.println("Landed");
+
+        //The ship has landed on Mars. Return the value false;
+        return false;
+    }
+}
+
+
 
 
 
